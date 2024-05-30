@@ -3,6 +3,7 @@ version: '3'
 services:
   debian-bash:
     image: dockerdevenvproject:latest
+    container_name: ds-dev-env
     deploy:
       resources:
         reservations:
@@ -15,3 +16,16 @@ services:
     ports:
       - "2022:22"
       - "8888:8080"
+  
+  colab-runtime:
+    image: us-docker.pkg.dev/colab-images/public/runtime
+    container_name: colab-runtime-container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "127.0.0.1:9000:8080"
