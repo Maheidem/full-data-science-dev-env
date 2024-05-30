@@ -28,4 +28,4 @@ services:
               count: all
               capabilities: [gpu]
     ports:
-      - "127.0.0.1:9000:8080"
+      - "9000:8080"
