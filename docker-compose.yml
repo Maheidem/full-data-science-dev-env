@@ -11,6 +11,9 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+    volumes:
+      - /home/maheidem/docker/colab/content:/content
+      - /home/maheidem/docker/colab/temp:/tmp
     ports:
       - "9000:8080"
     ulimits:
